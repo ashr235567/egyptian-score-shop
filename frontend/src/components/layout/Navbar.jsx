@@ -65,7 +65,7 @@ const Navbar = () => {
         backdropFilter: 'blur(8px)'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', height: 'var(--header-height)', gap: 20 }}>
+      <div className="container navbar-row" style={{ display: 'flex', alignItems: 'center', height: 'var(--header-height)', gap: 20 }}>
         <button
           className="mobile-menu-btn"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -92,9 +92,9 @@ const Navbar = () => {
           >
             ES
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }} className="navbar-wordmark">
             <span style={{ fontWeight: 800, fontSize: 16 }}>EGYPTIAN</span>
-            <span style={{ fontWeight: 600, fontSize: 11, letterSpacing: 1.5, color: 'var(--color-text-secondary)' }}>
+            <span style={{ fontWeight: 600, fontSize: 11, letterSpacing: 1.5, color: 'var(--color-text-secondary)' }} className="navbar-subtitle">
               SCORE SHOP
             </span>
           </div>
@@ -134,11 +134,11 @@ const Navbar = () => {
           />
         </form>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <button onClick={toggleLanguage} aria-label="Switch language" className="icon-btn" style={iconBtnStyle} title={language === 'en' ? 'العربية' : 'English'}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }} className="navbar-icon-group">
+          <button onClick={toggleLanguage} aria-label="Switch language" className="icon-btn lang-theme-toggle" style={iconBtnStyle} title={language === 'en' ? 'العربية' : 'English'}>
             <FaGlobe size={17} />
           </button>
-          <button onClick={toggleTheme} aria-label="Toggle theme" className="icon-btn" style={iconBtnStyle}>
+          <button onClick={toggleTheme} aria-label="Toggle theme" className="icon-btn lang-theme-toggle" style={iconBtnStyle}>
             {theme === 'light' ? <FaMoon size={17} /> : <FaSun size={17} />}
           </button>
           <Link to="/wishlist" className="icon-btn" style={{ ...iconBtnStyle, position: 'relative' }} aria-label={t('nav.wishlist')}>
@@ -223,6 +223,14 @@ const Navbar = () => {
               className="form-input"
             />
           </form>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
+            <button onClick={toggleLanguage} className="btn btn-outline btn-sm" style={{ flex: 1 }}>
+              <FaGlobe size={13} /> {language === 'en' ? 'العربية' : 'English'}
+            </button>
+            <button onClick={toggleTheme} className="btn btn-outline btn-sm" style={{ flex: 1 }}>
+              {theme === 'light' ? <FaMoon size={13} /> : <FaSun size={13} />} {theme === 'light' ? 'Dark' : 'Light'}
+            </button>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {NAV_LINKS.map((link) => (
               <Link key={link.key} to={link.path} onClick={() => setMobileOpen(false)} style={{ fontWeight: 600 }}>
@@ -240,9 +248,18 @@ const Navbar = () => {
         @media (max-width: 880px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; align-items:center; justify-content:center; }
+          .lang-theme-toggle { display: none !important; }
         }
         @media (min-width: 881px) {
           .mobile-nav { display: none !important; }
+        }
+        @media (max-width: 480px) {
+          .navbar-row { gap: 10px !important; }
+          .navbar-subtitle { display: none !important; }
+        }
+        @media (max-width: 360px) {
+          .navbar-wordmark { display: none !important; }
+          .navbar-icon-group { gap: 8px !important; }
         }
       `}</style>
     </header>
