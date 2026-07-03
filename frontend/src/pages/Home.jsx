@@ -11,7 +11,7 @@ import RatingStars from '../components/common/RatingStars';
 
 const CATEGORIES = [
   { key: 'Firm Ground', label: 'Firm Ground', img: 'https://images.unsplash.com/photo-1511886929837-354d827aae26?w=600' },
-  { key: 'Turf', label: 'Turf', img: 'https://images.unsplash.com/photo-1556817411-92ae294c2e2e?w=600' },
+  { key: 'Turf', label: 'Turf', img: 'https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=600' },
   { key: 'Indoor', label: 'Indoor', img: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=600' },
   { key: 'Kids', label: 'Kids', img: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600' }
 ];
